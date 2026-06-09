@@ -1,0 +1,61 @@
+// Collection appearance options. The icon values are stable string keys (kept
+// identical to the PWA and native app so JSON backups remain fully compatible);
+// they are Ionicons names, rendered directly by `CollectionIcon`.
+
+export const COLLECTION_COLORS = [
+  '#7C3AED',
+  '#2563EB',
+  '#059669',
+  '#D97706',
+  '#DC2626',
+  '#DB2777',
+  '#0891B2',
+  '#65A30D',
+  '#9333EA',
+  '#EA580C',
+  '#0F766E',
+  '#E11D48',
+  '#B45309',
+  '#BE185D',
+  '#1D4ED8',
+  '#15803D',
+  '#C2410C',
+  '#6D28D9',
+  '#0369A1',
+  '#166534',
+] as const;
+
+export const COLLECTION_ICONS = [
+  'folder',
+  'book',
+  'star',
+  'heart',
+  'briefcase',
+  'code-slash',
+  'film',
+  'musical-notes',
+  'camera',
+  'game-controller',
+  'globe',
+  'school',
+  'fitness',
+  'cart',
+  'airplane',
+  'restaurant',
+  'flask',
+  'leaf',
+  'car',
+  'home',
+  'people',
+  'newspaper',
+  'trophy',
+  'hammer',
+  'wallet',
+  'paint-brush',
+  'planet',
+  'headset',
+  'medkit',
+  'paw',
+] as const;
+
+export type CollectionIconName = (typeof COLLECTION_ICONS)[number];

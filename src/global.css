@@ -1,9 +1,50 @@
-:root {
-  --font-display:
-    Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol, Noto Color Emoji;
-  --font-mono:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
-  --font-serif: Georgia, 'Times New Roman', serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Stash violet brand (ported from the PWA's OKLCH tokens → sRGB channels) ── */
+@layer base {
+  :root {
+    --color-background: 248 246 255;
+    --color-foreground: 24 23 33;
+    --color-card: 255 255 255;
+    --color-card-foreground: 24 23 33;
+    --color-popover: 255 255 255;
+    --color-popover-foreground: 24 23 33;
+    --color-primary: 135 62 236;
+    --color-primary-foreground: 250 250 250;
+    --color-secondary: 241 238 251;
+    --color-secondary-foreground: 82 42 146;
+    --color-muted: 243 241 250;
+    --color-muted-foreground: 98 97 116;
+    --color-accent: 238 234 252;
+    --color-accent-foreground: 82 42 146;
+    --color-destructive: 231 0 11;
+    --color-border: 224 222 233;
+    --color-input: 224 222 233;
+    --color-ring: 135 62 236;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-background: 16 15 23;
+      --color-foreground: 244 242 250;
+      --color-card: 27 26 37;
+      --color-card-foreground: 244 242 250;
+      --color-popover: 27 26 37;
+      --color-popover-foreground: 244 242 250;
+      --color-primary: 174 154 245;
+      --color-primary-foreground: 24 22 37;
+      --color-secondary: 38 37 49;
+      --color-secondary-foreground: 230 226 244;
+      --color-muted: 38 37 49;
+      --color-muted-foreground: 165 161 182;
+      --color-accent: 49 44 67;
+      --color-accent-foreground: 224 216 252;
+      --color-destructive: 255 100 103;
+      --color-border: 45 44 51;
+      --color-input: 52 51 58;
+      --color-ring: 174 154 245;
+    }
+  }
 }
