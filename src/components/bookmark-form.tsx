@@ -15,6 +15,7 @@ import { Text } from '@/components/ui/text';
 import { Textarea } from '@/components/ui/textarea';
 import { downscaleImage } from '@/lib/image';
 import { fetchUrlMetadata } from '@/lib/metadata';
+import { MetadataWebView, type MetadataWebViewRef } from '@/lib/webview-metadata';
 import { useBookmarks } from '@/lib/context';
 import { useColors } from '@/lib/theme';
 import { toast } from '@/lib/toast';
@@ -50,6 +51,7 @@ export function BookmarkForm({
   const [fetching, setFetching] = useState(false);
   const [showCollectionError, setShowCollectionError] = useState(false);
   const didAutoFetch = useRef(false);
+  const metadataRef = useRef<MetadataWebViewRef>(null);
 
   const goBack = () => {
     if (router.canGoBack()) router.back();
@@ -72,7 +74,7 @@ export function BookmarkForm({
     setUrl(target);
     setFetching(true);
     try {
-      const meta = await fetchUrlMetadata(target);
+      const meta = await (metadataRef.current?.fetchMetadata(target) ?? fetchUrlMetadata(target));
       applyMetadata(meta);
       if (!meta.title && !meta.imageUrl) {
         toast.info('Could not auto-fetch details — enter them manually.');
@@ -175,6 +177,8 @@ export function BookmarkForm({
   };
 
   return (
+    <>
+    <MetadataWebView ref={metadataRef} />
     <FormShell
       title={isEditing ? 'Edit bookmark' : 'Add bookmark'}
       onClose={goBack}
@@ -291,5 +295,6 @@ export function BookmarkForm({
         />
       </View>
     </FormShell>
+    </>
   );
 }

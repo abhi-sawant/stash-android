@@ -50,7 +50,7 @@ async function fetchViaProxy(targetUrl: string): Promise<{ html?: string }> {
 
 // ─── HTML parsing helpers ─────────────────────────────────────────────────
 
-function resolveImageUrl(raw: string, baseUrl: string): string {
+export function resolveImageUrl(raw: string, baseUrl: string): string {
   if (!raw) return '';
   if (raw.startsWith('//')) return `https:${raw}`;
   if (/^https?:\/\//i.test(raw)) return raw;
