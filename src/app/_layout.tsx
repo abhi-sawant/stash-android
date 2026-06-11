@@ -49,10 +49,10 @@ export default function RootLayout() {
                 <Stack screenOptions={{ headerShown: false }}>
                   <Stack.Screen name="(tabs)" />
                   <Stack.Screen name="(auth)" />
-                  <Stack.Screen name="bookmark/new" options={{ presentation: 'modal' }} />
-                  <Stack.Screen name="bookmark/[id]" options={{ presentation: 'modal' }} />
-                  <Stack.Screen name="collections/new" options={{ presentation: 'modal' }} />
-                  <Stack.Screen name="collections/[id]/edit" options={{ presentation: 'modal' }} />
+                  <Stack.Screen name="bookmark/new" options={{ presentation: 'fullScreenModal' }} />
+                  <Stack.Screen name="bookmark/[id]" options={{ presentation: 'fullScreenModal' }} />
+                  <Stack.Screen name="collections/new" options={{ presentation: 'fullScreenModal' }} />
+                  <Stack.Screen name="collections/[id]/edit" options={{ presentation: 'fullScreenModal' }} />
                   <Stack.Screen name="collections/[id]/index" />
                 </Stack>
               </ConfirmProvider>
