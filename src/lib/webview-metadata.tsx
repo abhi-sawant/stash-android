@@ -119,7 +119,8 @@ export function MetadataWebView({ ref }: { ref?: React.Ref<MetadataWebViewRef> }
   return (
     <WebView
       ref={webViewRef}
-      style={styles.hidden}
+      style={styles.webview}
+      containerStyle={styles.hidden}
       source={source}
       onLoadEnd={handleLoadEnd}
       onMessage={handleMessage}
@@ -132,12 +133,19 @@ export function MetadataWebView({ ref }: { ref?: React.Ref<MetadataWebViewRef> }
 }
 
 // Positioned off-screen with a 1×1 size — zero-size WebViews may not render
-// page content reliably on Android.
+// page content reliably on Android. The hiding must go on `containerStyle`:
+// react-native-webview wraps the native view in an outer View with flex: 1,
+// and `style` only reaches the inner native view, so styling only `style`
+// leaves a flex: 1 container in the layout flow.
 const styles = StyleSheet.create({
   hidden: {
     position: 'absolute',
     left: -9999,
     top: -9999,
+    width: 1,
+    height: 1,
+  },
+  webview: {
     width: 1,
     height: 1,
   },
